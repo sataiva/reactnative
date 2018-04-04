@@ -73,47 +73,41 @@ export default props =>
       Application.User authentication will perform only after the successful
       user creation in the database.
     </p>
-    <ul style={{ paddingLeft: 8, listStyleType: "none" }}>
-      <li>
-        <h4>1. Creat a signup screen</h4>
-        <p>
-          To create a signup screen, i am using TextInput components to get
-          values from user and a Button component to invoke signup
-          functionality.
-        </p>
-        <Block value={inputboxes} />
-      </li>
-      <li>
-        <h4>2. Define a login function</h4>
-        <p>
-          Here i am gonna use this.mutate() method to pass user values as
-          arguments to a query and register a user.
-        </p>
-        <p>
-          To use this method we should wrap our component inside database
-          connectivity components.Here i am using the
-          <a href="https://github.com/apollographql/react-apollo">
-            <b> react-apollo </b>
-          </a>
-          package to establish a database connection and a query execution.
-        </p>
-        <Block value={signupquery} />
 
-        <p>
-          This is nothing but getting values from input boxes and do some
-          validations.After validation success hit the database to authenticate
-          user login details.
-        </p>
-        <Block value={signupfunction} />
-      </li>
-      <li>
-        <h4>3. Display result</h4>
-        <p>
-          Now we have to enter a name, phone number and password to create user
-          account.The database result will be displayed as a message.
-        </p>
-      </li>
-    </ul>
+    <h4>1. Creat a signup screen</h4>
+    <p>
+      To create a signup screen, i am using TextInput components to get values
+      from user and a Button component to invoke signup functionality.
+    </p>
+    <Block value={inputboxes} />
+
+    <h4>2. Define a login function</h4>
+    <p>
+      Here i am gonna use this.mutate() method to pass user values as arguments
+      to a query and register a user.
+    </p>
+    <p>
+      To use this method we should wrap our component inside database
+      connectivity components.Here i am using the
+      <a href="https://github.com/apollographql/react-apollo">
+        <b> react-apollo </b>
+      </a>
+      package to establish a database connection and a query execution.
+    </p>
+    <Block value={signupquery} />
+
+    <p>
+      This is nothing but getting values from input boxes and do some
+      validations.After validation success hit the database to authenticate user
+      login details.
+    </p>
+    <Block value={signupfunction} />
+
+    <h4>3. Display result</h4>
+    <p>
+      Now we have to enter a name, phone number and password to create user
+      account.The database result will be displayed as a message.
+    </p>
     <CtaButton to="/reactnative-intro/reactnative-login">Previous</CtaButton>
-    <CtaButton to="/reactnative-intro/reactnative-signup">Next</CtaButton>
+    <CtaButton to="/reactnative-intro/reactnative-navigation">Next</CtaButton>
   </MainLayout>;

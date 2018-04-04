@@ -55,46 +55,38 @@ export default props =>
       </p>
 
       <h4>3 important things you must known before starting react-native</h4>
-      <ol style={{ paddingLeft: 8 }}>
+
+      <h5>State</h5>
+      <p>
+        State is an object variable which is used to store some values. State
+        variables are mutable. Using state we can change Content or Screen.
+      </p>
+      <p>You can access a state variable using "this.state.variablename"</p>
+      <p>
+        You can modifty a state variable using "this.setState({`variablename:value`})"
+      </p>
+      <Block value={state} />
+      <h5>Component</h5>
+      <p>
+        Component is an element like HTML element which is used to build User
+        Interfaces (UI).
+      </p>
+      <ul style={{ paddingLeft: 8 }}>
         <li>
-          <h5>State</h5>
-          <p>
-            State is an object variable which is used to store some values.
-            State variables are mutable. Using state we can change Content or
-            Screen.
-          </p>
-          <p>You can access a state variable using "this.state.variablename"</p>
-          <p>
-            You can modifty a state variable using "this.setState({`variablename:value`})"
-          </p>
-          <Block value={state} />
+          <h6>Dummy component</h6>
+          <Block value={dummycomponent} />
         </li>
         <li>
-          <h5>Component</h5>
-          <p>
-            Component is an element like HTML element which is used to build
-            User Interfaces (UI).
-          </p>
-          <ul style={{ paddingLeft: 8 }}>
-            <li>
-              <h6>Dummy component</h6>
-              <Block value={dummycomponent} />
-            </li>
-            <li>
-              <h6>Smart component</h6>
-              <Block value={smartcomponent} />
-            </li>
-          </ul>
+          <h6>Smart component</h6>
+          <Block value={smartcomponent} />
         </li>
-        <li>
-          <h5>Life Cycle</h5>
-          <p>
-            React and Reactnative js are executing certain methods in certail
-            order.
-          </p>
-          <p>Ex. "render()" must be called.</p>
-        </li>
-      </ol>
-      <CtaButton to="/reactnative-intro/reactnative-login">Next</CtaButton>
+      </ul>
+      <h5>Life Cycle</h5>
+      <p>
+        React and Reactnative js are executing certain methods in certail order.
+      </p>
+      <p>Ex. "render()" must be called.</p>
+
+      <CtaButton to="/reactnative-intro/">Next</CtaButton>
     </div>
   </MainLayout>;

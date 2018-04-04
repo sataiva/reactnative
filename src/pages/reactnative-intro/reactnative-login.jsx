@@ -74,48 +74,44 @@ export default props =>
       User login and authentication is a primary functionality. Let's see how to
       create a Login Page and authenticate user.
     </p>
-    <ul style={{ paddingLeft: 8, listStyleType: "none" }}>
-      <li>
-        <h4>1. Creat a component</h4>
-        <p>
-          To create a login page we need an input components like Input boxes to
-          enter username and password and Button component to submit values and
-          invoke authentication functions.
-        </p>
-        <Block value={inputboxes} />
-      </li>
-      <li>
-        <h4>2. Define a login function</h4>
-        <p>
-          Here i am gonna use this.mutate() method to pass arguments to a query
-          and authenticate a user.
-        </p>
-        <p>
-          To use this method we should wrap our component inside database
-          connectivity components.Here i am using the
-          <a href="https://github.com/apollographql/react-apollo">
-            <b> react-apollo </b>
-          </a>
-          package to establish a database connection and a query execution.
-        </p>
-        <Block value={loginquery} />
 
-        <p>
-          This is nothing but getting values from input boxes and do some
-          validations.After validation success hit the database to authenticate
-          user login details.
-        </p>
-        <Block value={loginfunction} />
-      </li>
-      <li>
-        <h4>3. Display result</h4>
-        <p>
-          Now we have to enter a phone number and password to login.The
-          Authenticaiton result will be displayed in message text and then we
-          need to navigate if the result is success.
-        </p>
-      </li>
-    </ul>
-    <CtaButton to="/reactnative-intro/introduction">Previous</CtaButton>
+    <h4>1. Creat a component</h4>
+    <p>
+      To create a login page we need an input components like Input boxes to
+      enter username and password and Button component to submit values and
+      invoke authentication functions.
+    </p>
+    <Block value={inputboxes} />
+
+    <h4>2. Define a login function</h4>
+    <p>
+      Here i am gonna use this.mutate() method to pass arguments to a query and
+      authenticate a user.
+    </p>
+    <p>
+      To use this method we should wrap our component inside database
+      connectivity components.Here i am using the
+      <a href="https://github.com/apollographql/react-apollo">
+        <b> react-apollo </b>
+      </a>
+      package to establish a database connection and a query execution.
+    </p>
+    <Block value={loginquery} />
+
+    <p>
+      This is nothing but getting values from input boxes and do some
+      validations.After validation success hit the database to authenticate user
+      login details.
+    </p>
+    <Block value={loginfunction} />
+
+    <h4>3. Display result</h4>
+    <p>
+      Now we have to enter a phone number and password to login.The
+      Authenticaiton result will be displayed in message text and then we need
+      to navigate if the result is success.
+    </p>
+
+    <CtaButton to="/reactnative-intro/">Previous</CtaButton>
     <CtaButton to="/reactnative-intro/reactnative-signup">Next</CtaButton>
   </MainLayout>;

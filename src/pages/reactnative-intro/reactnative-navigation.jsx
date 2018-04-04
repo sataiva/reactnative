@@ -61,6 +61,6 @@ export default props =>
       screens. Ex. Home, Profile.
     </p>
     <Block value={samplestack} />
-    <CtaButton to="/reactnative-intro/introduction">Previous</CtaButton>
-    <CtaButton to="/reactnative-intro/reactnative-signup">Next</CtaButton>
+    <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
+    <CtaButton to="/reactnative-intro/">Next</CtaButton>
   </MainLayout>;
