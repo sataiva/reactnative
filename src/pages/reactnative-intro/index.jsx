@@ -9,10 +9,25 @@ export default props =>
     <div>
       <h2>Common features in mobile applications.</h2>
       <ol style={{ paddingLeft: 15 }}>
-        <li>Hello World</li>
-        <li>Login Screen</li>
-        <li>Signup Screen</li>
-        <li>Side menu with navigation</li>
+        <li>
+          <a href="/reactnative-intro/reactnative-helloworld">Hello World</a>
+        </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-login">Login Screen</a>
+        </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-signup">Signup Screen</a>
+        </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-navigation">
+            Navigation using Stack Navigator
+          </a>
+        </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-drawerNavigator">
+            Side Menu Navigation using DrawerNavigator
+          </a>
+        </li>
       </ol>
       <p>Let's see them...</p>
       <CtaButton to="/reactnative-intro/reactnative-helloworld">Next</CtaButton>

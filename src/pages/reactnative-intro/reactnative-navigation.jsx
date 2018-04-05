@@ -167,7 +167,7 @@ const RootStack = StackNavigator(
 
 export default props =>
   <MainLayout>
-    <Helmet title={"React native Navigation"} />
+    <Helmet title={"React native Stack Navigator"} />
     <h2>Navigation between screens using React native</h2>
     {/* navigation package */}
     <h4>1. Add Navigation Package</h4>
@@ -190,7 +190,7 @@ export default props =>
     <h4>2. Stack Navigation Example</h4>
     <p>
       Stack Navigator accept object as an argument where each screen specified
-      by a key value pair which in return a React Component. Using those
+      by a key value pair which returns a React Component. Using those
       <b> Key </b> values only we can navigate through screens. Ex. Home,
       Profile.
     </p>
