@@ -62,21 +62,6 @@ login=()=>{
 }
 `;
 
-const loginquery = `
-const LoginQuery = gql'
-  mutation AuthenticateUser(
-    $phone: String!
-    $password: String!
-  ) {
-    AuthenticateUser(phone: $phone, password: $password) {
-      result
-      error
-    }
-  }
-';
-export default graphql(LoginQuery)(LoginScreen);
-`;
-
 export default props =>
   <MainLayout>
     <Helmet title={"React Native Login page"} />

@@ -1,7 +1,16 @@
 import React from "react";
+import Helmet from "react-helmet";
 import MainLayout from "../../components/MainLayout";
 import CtaButton from "../../components/CtaButton";
 import Block from "../../components/Block";
+import EmptyHome from "../../images/home.png";
+import EmptyDetails from "../../images/details.png";
+import Home from "../../images/homewithbutton.png";
+import Details from "../../images/detailswithbuttons.png";
+import sharednavigationoption1 from "../../images/detailswithheader.png";
+import sharednavigationoption2 from "../../images/homewithheader.png";
+import HomeWithTitle from "../../images/homewithtitle.png";
+import DetailsWithTitle from "../../images/detailswithtitle.png";
 
 const navigationpackage = `
 yarn add react-navigation
@@ -12,164 +21,282 @@ yarn add react-native-side-menu
 `;
 
 const samplestack = `
-import {StackNavigator} from 'react-navigation';
-import HomeScreen from "../src/screens/Home.js";
-import ProfileScreen from "../src/screens/Profile.js";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class AppNavigator extends React.Component {
-  render=()=>{
-    return <App/>
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+      </View>
+    );
   }
 }
 
-const App = StackNavigator({
-    Home: { screen: HomeScreen },
-    Profile: { screen: ProfileScreen }
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
+}
+
+const RootStack = StackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Details: {
+    screen: DetailsScreen,
+  }
+},
+{
+  initialRouteName: 'Home',
 });
-`;
 
-const menu = `
-import React from "react";
-import PropTypes from "prop-types";
-import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from "react-native";
-import { graphqlFetch } from "../utils/graphql";
-
-const window = Dimensions.get("window");
-export default class Menu extends React.Component {
-  state = {};
+export default class App extends React.Component {
   render() {
-    return (
-      <ScrollView scrollsToTop={false} style={styles.menu}>
-        <View style={styles.menucontainer}>
-          <View style={styles.menuheader}>
-            <Image style={styles.menuheaderlogo} source={require("../images/user.png")}/>
-            <Text style={styles.menuheadertext}>Name</Text>
-          </View>
-
-          <View style={styles.menuview}>
-            <TouchableOpacity style={styles.menubutton} onPress={() => { this.props.togglemenu(); this.props.navigate("Home"); }}>
-            <Text style={styles.buttonText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menubutton} onPress={() => { this.props.togglemenu(); this.props.navigate("Profile");}}>
-            <Text style={styles.buttonText}>Profile</Text>
-          </TouchableOpacity>
-          </View>
-          <View style={styles.footercontainer}>
-            <Text style={styles.footertext}>@2018</Text>
-          </View>
-        </View>
-      </ScrollView>
-    );
+    return <RootStack />;
   }
 }
 `;
 
-const SideMenu = `
-import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import SideMenu from "react-native-side-menu";
-import Menu from "../components/Menu";
+const samplestackwithnavigation = `
+import React from 'react';
+import { Button, View, Text } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-const image = require("../images/menu.png");
-
-export default class Basic extends Component {
-  state = { isOpen: false };
-
-  toggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
-  updateMenuState = isOpen => {
-    this.setState({ isOpen });
-  };
-
+class HomeScreen extends React.Component {
   render() {
-    const { navigate } = this.props.navigation;
-    const menu = <Menu navigate={navigate} signout={this.props.screenProps.signout} togglemenu={this.toggle}/>;
-    const children = React.Children.map(this.props.children, child => {
-      return React.cloneElement(child, {
-        navigate: navigate,
-        screenProps: this.props.screenProps,
-        togglemenu: this.toggle
-      });
-    });
-
     return (
-      <SideMenu
-        menu={menu}
-        isOpen={this.state.isOpen}
-        onChange={isOpen => this.updateMenuState(isOpen)}
-      >
-        {children}
-      </SideMenu>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+      </View>
     );
   }
 }
+
+// ... other code from the previous section
+`;
+
+const navigateback = `
+// ... other code from the previous section
+
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
+      </View>
+    );
+  }
+}
+
+// ... other code from the previous section
+`;
+
+const screenheaderconfig = `
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
+  /* render function, etc */
+}
+
+class DetailsScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Details',
+  };
+
+  /* render function, etc */
+}
+`;
+
+const sharednavigationoption = `
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    /* No more header config here! */
+  };
+
+  /* render function, etc */
+}
+
+/* other code... */
+
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    Details: {
+      screen: DetailsScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
 `;
 
 export default props =>
   <MainLayout>
-    <h2>React Native Navigation</h2>
+    <Helmet title={"React native Navigation"} />
+    <h2>Navigation between screens using React native</h2>
     {/* navigation package */}
     <h4>1. Add Navigation Package</h4>
     <p>
-      To navigate between apps multiple screen, react native providing a package
-      name called
+      To navigate between apps multiple screen, react native provides a
       <a href="https://reactnavigation.org/docs/getting-started.html">
-        <b> react-navigation</b>
-      </a>.
+        <b> react-navigation </b>
+      </a>
+      package.
     </p>
     <p>
-      React Navigation provides an easy to use navigation solution, with the
-      ability to present common <b>stack navigation</b> and
-      <b> tabbed navigation </b>
-      patterns on both iOS and Android.
+      React Navigation provides an easy to use navigation solution.It has two
+      navigation options. <b>stack navigation</b> and
+      <b> tabbed navigation</b>
+      , which supports in both iOS and Android.
     </p>
     <Block value={navigationpackage} lang="bash" />
-    {/* side menu package */}
-    <h4>2. Add Side Menu Package</h4>
-    <p>
-      Here i am gonna use Stack Navigation with <b>Side Menu</b>
-      .To create a side menu we need a
-      <a href="https://reactnavigation.org/docs/getting-started.html">
-        <b> react-native-side-menu </b>
-      </a>
-      package which is also support in both iOS and Android.
-    </p>
-    <Block value={sidemenupackage} />
 
     {/* normal app.js */}
-    <h4>3. Sample Stack Navigation syntax</h4>
+    <h4>2. Stack Navigation Example</h4>
     <p>
       Stack Navigator accept object as an argument where each screen specified
-      by a key value pair. Using those <b> Key </b> only we can navigate through
-      screens. Ex. Home, Profile.
+      by a key value pair which in return a React Component. Using those
+      <b> Key </b> values only we can navigate through screens. Ex. Home,
+      Profile.
     </p>
     <p>
-      <small>AppNavigator.js</small>
+      <small>app.js</small>
     </p>
     <Block value={samplestack} />
+    <p>
+      If you run this code, you will see a screen with an empty navigation bar
+      and a grey content area containing your HomeScreen component.
+    </p>
+    <img src={EmptyHome} alt="Basci Home screen" height="50%" width="50%" />
+    <img
+      src={EmptyDetails}
+      alt="Basic details screen"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: 10 }}
+    />
+    <p>
+      To specify what the initial route in a stack is, provide an
+      <b> initialRouteName</b> on the stack options object.
+    </p>
 
-    <h4>4. Create a Menu component</h4>
+    <h4>3. Navigating to a new screen? How?</h4>
+    <Block value={samplestackwithnavigation} />
+    <ul>
+      <li>
+        <p>
+          <b>this.props.navigation.navigate() </b> is a method used to navigate
+          from "Home screen" to "Details screen".This method injected to each
+          routes which defined in StackNavigator.
+        </p>
+      </li>
+    </ul>
+    <img
+      src={Home}
+      alt="Home screen with buttons"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%" }}
+    />
+    <h4>4. How to navigate back?</h4>
+    <Block value={navigateback} />
+    <ul>
+      <li>
+        <p>
+          The header bar will automatically show a back button.But you can
+          programmatically go back by calling this method
+          <b> this.props.navigation.goBack()</b>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Whenever you click the <b>Go to Details... again </b> button it pushes
+          a new route to the navigation stack.
+        </p>
+      </li>
+      <li>Stack navigator header has it's own back button like left arrow.</li>
+    </ul>
+    <img
+      src={Details}
+      alt="Deatils screen with buttons"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%" }}
+    />
+    <h4>5. How to configure the Header bar in a screen?</h4>
+    <Block value={screenheaderconfig} />
     <p>
-      Here i am gonna create a component which has navigation menu names.
-      Designed side menu interface.
-    </p>
-    <p>   
-      <small>Menu.js</small>
-    </p>
-    <Block value={menu} />
-
-    <h4>4. Create a SideMenu</h4>
-    <p>
-      Here i am gonna use a previous Menu component to display as a side menu
-      when opening menu and inject them with navigation properties
+      The screens which are used in Stack Navigator can have a static property
+      called <b>navigationOptions</b>. It accepts object or function as an
+      argument and returns an object which contains various configurations.
     </p>
     <p>
-      <small>SideMenu.js</small>
+      Here i am changing the title of each screen by setting navigationOptions
+      <b> title</b>.
     </p>
-    <Block value={SideMenu} />
-    
+    <img src={HomeWithTitle} alt="Basci Home screen" height="50%" width="50%" />
+    <img
+      src={DetailsWithTitle}
+      alt="Basic details screen"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: 10 }}
+    />
+    <h4>5. How to share a commmon navigationOptions in all screens?</h4>
+    <Block value={sharednavigationoption} />
+    <p>
+      Here i am writing a common navigationOptions configurations in a Stack
+      navigator which applies to all the screen defined in stack navigator.{" "}
+    </p>
+    <p>For Ex. headerStyle, headerTintColor, headerTitleStyle.</p>
+    <img
+      src={sharednavigationoption2}
+      alt="Basci Home screen"
+      height="50%"
+      width="50%"
+    />
+    <img
+      src={sharednavigationoption1}
+      alt="Basic details screen"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: 10 }}
+    />
     <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
     <CtaButton to="/reactnative-intro/">Next</CtaButton>
   </MainLayout>;

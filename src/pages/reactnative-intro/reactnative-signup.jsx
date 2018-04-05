@@ -1,7 +1,9 @@
 import React from "react";
+import Helmet from "react-helmet";
 import MainLayout from "../../components/MainLayout";
 import CtaButton from "../../components/CtaButton";
 import Block from "../../components/Block";
+import signupscreen from "../../images/signup.png";
 
 const inputboxes = `
 import React, { Component } from "react";
@@ -14,7 +16,7 @@ class SignupScreen extends Component{
         message:""
     };
 
-    signup=()=>{
+    createaccount=()=>{
     }
 
     render(){
@@ -27,47 +29,58 @@ class SignupScreen extends Component{
                 </View>
     }
 }
+//Write your own css style here.
+const styles = StyleSheet.create({....});
 `;
 
 const signupfunction = `
 createaccount = () => {
     const { phone, password, name, message } = this.state;
-    this.props
-      .mutate({
-        variables: {
-          phone: phone.trim(),
-          password: password.trim(),
-          name: name.trim()
-        }
-      })
-      .then(resp => {
-        if (resp.data.createUser) {
-          const id = resp.data.createUser.id;
-          this.setState({message: "Successfully created an account", phone: "", password: "", name: ""});
+    const query= {
+                    //Write your query 
+    };
+    const DB_ENDPOINT ="https://your-database-api-endpoint";
+    const options = {
+                      uri: DB_ENDPOINT,
+                      headers: { 'Content-Type': 'application/json' },
+                      method: 'POST',
+                      body: JSON.stringify({ query })
+    };
+
+    fetch(DB_ENDPOINT, options).then(resp => {
+      return resp.json()
+    }).then(res => {
+      //Returned result maybe different for you.
+        if (res.data.result) {
+          this.setState({ message: "Account registration success." });
         } else {
           this.setState({ message: "Invalid credentials" });
         }
-      })
-      .catch(error => {
-        this.setState({ message: "Invalid credentials" });
-      });
-  };
+      return res;
+    }) .catch(() => {
+      this.setState({ message: "Can't able to create user.Please try again." });
+    });
 `;
 
 const signupquery = `
-const SignupQuery = gql'
-  mutation CreateUser($phone: String!, $password: String!, $name: String!) {
-    createUser(phone: $phone, password: $password, name: $name) {
-      id
+const LoginQuery = gql'
+  mutation AuthenticateUser(
+    $phone: String!
+    $password: String!
+  ) {
+    AuthenticateUser(phone: $phone, password: $password) {
+      result
+      error
     }
   }
 ';
-const SignupScreenWithQuery = graphql(SignupQuery)(SignupScreen);
+export default graphql(LoginQuery)(LoginScreen);
 `;
 
 export default props =>
   <MainLayout>
-    <h2>React Native Sign Up</h2>
+    <Helmet title={"React Native Signup page"} />
+    <h2>SignUp page using React Native</h2>
     <p>
       Like login,<b> Signup</b> is also a primary function needed for Mobile
       Application.User authentication will perform only after the successful
@@ -80,22 +93,14 @@ export default props =>
       from user and a Button component to invoke signup functionality.
     </p>
     <Block value={inputboxes} />
-
-    <h4>2. Define a login function</h4>
-    <p>
-      Here i am gonna use this.mutate() method to pass user values as arguments
-      to a query and register a user.
-    </p>
-    <p>
-      To use this method we should wrap our component inside database
-      connectivity components.Here i am using the
-      <a href="https://github.com/apollographql/react-apollo">
-        <b> react-apollo </b>
-      </a>
-      package to establish a database connection and a query execution.
-    </p>
-    <Block value={signupquery} />
-
+    <img
+      src={signupscreen}
+      alt="Smiley face"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%" }}
+    />
+    <h4>2. Define a createaccount function</h4>
     <p>
       This is nothing but getting values from input boxes and do some
       validations.After validation success hit the database to authenticate user
