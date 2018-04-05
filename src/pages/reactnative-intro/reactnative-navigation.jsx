@@ -64,6 +64,49 @@ export default class Menu extends React.Component {
 }
 `;
 
+const SideMenu = `
+import React, { Component } from "react";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import SideMenu from "react-native-side-menu";
+import Menu from "../components/Menu";
+
+const image = require("../images/menu.png");
+
+export default class Basic extends Component {
+  state = { isOpen: false };
+
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  updateMenuState = isOpen => {
+    this.setState({ isOpen });
+  };
+
+  render() {
+    const { navigate } = this.props.navigation;
+    const menu = <Menu navigate={navigate} signout={this.props.screenProps.signout} togglemenu={this.toggle}/>;
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        navigate: navigate,
+        screenProps: this.props.screenProps,
+        togglemenu: this.toggle
+      });
+    });
+
+    return (
+      <SideMenu
+        menu={menu}
+        isOpen={this.state.isOpen}
+        onChange={isOpen => this.updateMenuState(isOpen)}
+      >
+        {children}
+      </SideMenu>
+    );
+  }
+}
+`;
+
 export default props =>
   <MainLayout>
     <h2>React Native Navigation</h2>
@@ -109,23 +152,24 @@ export default props =>
 
     <h4>4. Create a Menu component</h4>
     <p>
-      Here i am gonna create a component which has navigation menu names and
-      designed side menu interface.
+      Here i am gonna create a component which has navigation menu names.
+      Designed side menu interface.
     </p>
-    <p>
-      <small>SideMenu.js</small>
+    <p>   
+      <small>Menu.js</small>
     </p>
     <Block value={menu} />
 
-    <h4>4. Create a SideMenu component</h4>
+    <h4>4. Create a SideMenu</h4>
     <p>
       Here i am gonna use a previous Menu component to display as a side menu
       when opening menu and inject them with navigation properties
     </p>
     <p>
-      <small>Menu.js</small>
+      <small>SideMenu.js</small>
     </p>
-    <Block value={menu} />
+    <Block value={SideMenu} />
+    
     <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
     <CtaButton to="/reactnative-intro/">Next</CtaButton>
   </MainLayout>;
