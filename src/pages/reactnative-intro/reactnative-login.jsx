@@ -80,7 +80,7 @@ export default props =>
     <Block value={inputboxes} />
     <img
       src={loginscreen}
-      alt="Smiley face"
+      alt="login screen"
       height="50%"
       width="50%"
       style={{ position: "relative", left: "25%" }}
