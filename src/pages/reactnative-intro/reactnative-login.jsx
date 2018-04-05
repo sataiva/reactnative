@@ -38,7 +38,6 @@ login=()=>{
     const query= {
                     //Write your query 
     };
-    //1. Database connection
     const DB_ENDPOINT ="https://your-database-api-endpoint";
     const options = {
                       uri: DB_ENDPOINT,
@@ -47,11 +46,9 @@ login=()=>{
                       body: JSON.stringify({ query })
     };
 
-    //2. fetch result
     fetch(DB_ENDPOINT, options).then(resp => {
       return resp.json()
     }).then(res => {
-      //3. Processing result
       //Returned result maybe different for you.
         if (res.data.result) {
           this.setState({ message: "Successfully logged in" });
@@ -115,13 +112,13 @@ export default props =>
     <Block value={loginfunction} />
 
     <h4>3. Display result</h4>
-    <img
+    {/* <img
       src={loginmessagescreen}
       alt="Smiley face"
       height="50%"
       width="50%"
       style={{ position: "relative", left: "25%" }}
-    />
+    /> */}
     <p>
       Now we have to enter a phone number and password to login.The
       Authenticaiton result will be displayed in message text and then we need
