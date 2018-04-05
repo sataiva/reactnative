@@ -34,6 +34,23 @@ class Profile extends React.Component {
 export default Home;
 `;
 
+const simpledrawer = `
+// ... other code from the previous section
+
+import { DrawerNavigator } from "react-navigation";
+
+// ... other code from the previous section
+
+export default DrawerNavigator(
+    {   Home: { screen: Home },
+        Profile: { screen: Profile}
+    },
+    {
+      drawerWidth: 250
+    }
+  );
+`;
+
 export default props =>
   <MainLayout>
     <Helmet title={"React native Stack Navigator"} />
@@ -71,6 +88,13 @@ export default props =>
       width="50%"
       style={{ position: "relative", left: 10 }}
     />
+    <h4>2.Creating simple side menu drawer </h4>
+    <p>
+      First i am gonna import DrawerNavigator and then export DrawerNavigator
+      component.
+    </p>
+    <p> </p>
+    <Block value={simpledrawer} />
     <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
     <CtaButton to="/reactnative-intro/">Next</CtaButton>
   </MainLayout>;
