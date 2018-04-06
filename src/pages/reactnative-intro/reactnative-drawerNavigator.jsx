@@ -93,7 +93,10 @@ export default props =>
       First i am gonna import DrawerNavigator and then export DrawerNavigator
       component.
     </p>
-    <p> </p>
+    <p>
+      DrawerNavigator accepts first argument as an object or a function.This
+      object with key-value pair.
+    </p>
     <Block value={simpledrawer} />
     <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
     <CtaButton to="/reactnative-intro/">Next</CtaButton>
