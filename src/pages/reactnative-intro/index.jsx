@@ -33,6 +33,11 @@ export default props =>
             Create React native apps using expo
           </a>
         </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-expo-camera">
+            Capture image using React native + expo camera
+          </a>
+        </li>
       </ol>
       <p>Let's see them...</p>
       <CtaButton to="/reactnative-intro/reactnative-helloworld">Next</CtaButton>
