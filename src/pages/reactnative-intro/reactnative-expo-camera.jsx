@@ -6,6 +6,10 @@ import Block from "../../components/Block";
 import NewProjectEmptyScreen from "../../images/expo/newprojectemptyscreen.png";
 import SwitchOnScreen from "../../images/expo/switchon.png";
 import SwitchOffScreen from "../../images/expo/switchoff.png";
+import FirstCameraScreen from "../../images/expo/FirstCameraScreen.png";
+import FlipButtonCamera from "../../images/expo/FlipButtonCamera.png";
+import FinalScreenShot from "../../images/expo/FinalScreenShot.png";
+import result from "../../images/expo/result.png";
 
 const ScreenWithSwitch = `
 import React from "react";
@@ -63,6 +67,104 @@ const AddPermissions = `
 }
 // ... other code from the previous section
 
+`;
+
+const StateWillmountFunction = `
+import { Camera, Permissions } from 'expo';
+
+// ... other code from the previous section
+state = {
+  switchValue: false ,
+  hasCameraPermission: null, //Permission value
+  type: Camera.Constants.Type.back, //specifying app start with back camera.
+};
+
+async componentWillMount() {
+  //Getting Permission result from app details.
+  const { status } = await Permissions.askAsync(Permissions.CAMERA);
+  this.setState({ hasCameraPermission: status === 'granted' });
+}
+// ... other code from the previous section
+`;
+
+const RenderConditionCheck = `
+// ... other code from the previous section
+
+render() {
+  const { hasCameraPermission } = this.state;
+  if (hasCameraPermission === null) {
+    return <View />;
+  } else if (hasCameraPermission === false) {
+    return (
+      <View>
+        <Text>No access to camera</Text>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.switchview}>
+          <Text>Show camera</Text>...
+
+// ... other code from the previous section
+`;
+
+const CameraComponent = `
+// ... other code from the previous section
+
+<View style={styles.cameraview}>
+  <Camera style={styles.camera} type={this.state.type} />
+</View>
+
+// ... other code from the previous section
+`;
+
+const CameraWithFlipButton = `
+// ... other code from the previous section
+
+<Camera style={styles.camera} type={this.state.type}>
+<View style={styles.camerabuttonview}>
+  <TouchableOpacity
+    style={styles.cameraButtons}
+    onPress={this.cameraChange}
+  >
+    <Text
+      style={{ fontSize: 18, marginBottom: 10, color: "white" }}
+    >
+      Flip
+    </Text>
+  </TouchableOpacity>
+</View>
+</Camera>
+
+// ... other code from the previous section
+`;
+
+const cameraChangeFunction = `
+// ... other code from the previous section
+
+cameraChange = () => {
+  this.setState({
+    type:
+      this.state.type === Camera.Constants.Type.back
+        ? Camera.Constants.Type.front
+        : Camera.Constants.Type.back
+  });
+};
+
+// ... other code from the previous section
+`;
+
+const refField = `
+// ...
+<Camera ref={ref => { this.camera = ref; }} ...
+// ...
+snap = async () => {
+  if (this.camera) {
+    let photo = await this.camera.takePictureAsync();
+    console.log(photo);
+  }
+};
 `;
 
 export default props =>
@@ -133,6 +235,74 @@ export default props =>
     </p>
     <h6>How to add Permissions to Expo react native app?</h6>
     <Block value={AddPermissions} />
+    <h5>i. Create state variables and verify Camera Permission.</h5>
+    <Block value={StateWillmountFunction} />
+    <h5>ii. Render components based on conditions.</h5>
+    <p>
+      First we are getting Permission value in a constant variable
+      <b> "hasCameraPermission"</b>. Suppose the permission was denied (
+      hasCameraPermission == false ) then render function show "else if"
+      condition block.
+    </p>
+    <p>So we can see a text "No access to camera" in a screen.</p>
+    <Block value={RenderConditionCheck} />
+    <p>
+      If permission was grandted we need to show Camera component.We need to
+      configure camera with options.
+    </p>
+    <h5>iii. Create and Configure a Camera component</h5>
+    <Block value={CameraComponent} />
+    <p>
+      This Camera component without configuration will show you camera preview.
+    </p>
+    <img
+      src={FirstCameraScreen}
+      alt="Expo new project folder structure"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%", backgroundColor: "#000000" }}
+    />
+    <p>
+      Next i am gonna create a camera "flip" button to switch between front and
+      back camera.You can create buttons inside camera preview.
+    </p>
+    <Block value={CameraWithFlipButton} />
+    <p>
+      And then we need to write a <b> cameraChange </b> function to implement
+      camera switching between front and back.
+    </p>
+    <Block value={cameraChangeFunction} />
+    <img
+      src={FlipButtonCamera}
+      alt="Expo new project folder structure"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%", backgroundColor: "#000000" }}
+    />
+    <h4>4. Capturing the image and store it in app's cache</h4>
+    <p>
+      To use methods that Camera exposes one has to create a components
+      <b> ref </b> and invoke them using it.
+    </p>
+    <Block value={refField} />
+    <img
+      src={FinalScreenShot}
+      alt="Screen with capture button and functionlaityI"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%" }}
+    />
+    <p>
+      Result from captured image saved in app's cache and return it as a result
+      object.We can get our image url from result.
+    </p>
+    <img
+      src={result}
+      alt="Result of captured image"
+      height="50%"
+      width="50%"
+      style={{ position: "relative", left: "25%" }}
+    />
     <p />
     <CtaButton to="/reactnative-intro/reactnative-expo-introduction">
       Previous
