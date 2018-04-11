@@ -118,7 +118,7 @@ export default DrawerNavigator(
 
 export default props =>
   <MainLayout>
-    <Helmet title={"React native Stack Navigator"} />
+    <Helmet title={"React native Drawer Navigator"} />
     <h2>Creating custom Side Menu using DrawerNavigator in React Native</h2>
     <p>
       DrawerNavigator is an another type of navigator option in React Native
@@ -200,7 +200,7 @@ export default props =>
       width="50%"
       style={{ position: "relative", left: "25%" }}
     />
-    <p></p>
+    <p />
     <CtaButton to="/reactnative-intro/reactnative-signup">Previous</CtaButton>
-    <CtaButton to="/reactnative-intro/">Next</CtaButton>
+    <CtaButton to="/reactnative-intro/reactnative-expo-introduction">Next</CtaButton>
   </MainLayout>;

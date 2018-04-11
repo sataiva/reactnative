@@ -28,6 +28,11 @@ export default props =>
             Side Menu Navigation using DrawerNavigator
           </a>
         </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-expo-introduction">
+            Create React native apps using expo
+          </a>
+        </li>
       </ol>
       <p>Let's see them...</p>
       <CtaButton to="/reactnative-intro/reactnative-helloworld">Next</CtaButton>
