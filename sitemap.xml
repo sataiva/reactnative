@@ -4,9 +4,10 @@
 <url> <loc>http://react.sataiva.com/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/quick-intro/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>http://react.sataiva.com/reactnative-intro/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/reactnative-intro/introduction/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://react.sataiva.com/reactnative-intro/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/reactnative-intro/reactnative-drawerNavigator/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://react.sataiva.com/reactnative-intro/reactnative-expo-camera/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/reactnative-intro/reactnative-expo-introduction/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/reactnative-intro/reactnative-helloworld/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://react.sataiva.com/reactnative-intro/reactnative-login/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

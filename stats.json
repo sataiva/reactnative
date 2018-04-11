@@ -32,6 +32,10 @@
       "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-010f3c424a26dd9cd5ac.js",
       "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-010f3c424a26dd9cd5ac.js.map"
     ],
+    "path---reactnative-intro-reactnative-expo-camera": [
+      "path---reactnative-intro-reactnative-expo-camera-586c7e095e534a3909ec.js",
+      "path---reactnative-intro-reactnative-expo-camera-586c7e095e534a3909ec.js.map"
+    ],
     "path---index": [
       "path---index-586c7e095e534a3909ec.js",
       "path---index-586c7e095e534a3909ec.js.map"
@@ -52,9 +56,13 @@
       "commons-313c6b3d5933e7f168aa.js",
       "commons-313c6b3d5933e7f168aa.js.map"
     ],
+    "component---src-pages-reactnative-intro-reactnative-expo-camera-jsx": [
+      "component---src-pages-reactnative-intro-reactnative-expo-camera-jsx-a862272f3c330df7bd2e.js",
+      "component---src-pages-reactnative-intro-reactnative-expo-camera-jsx-a862272f3c330df7bd2e.js.map"
+    ],
     "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx": [
-      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-81cb09f8ec6c0f59d9ca.js",
-      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-81cb09f8ec6c0f59d9ca.js.map"
+      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-5ea91be4b6240634d7d8.js",
+      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-5ea91be4b6240634d7d8.js.map"
     ],
     "path---reactnative-intro-reactnative-navigation": [
       "path---reactnative-intro-reactnative-navigation-586c7e095e534a3909ec.js",
@@ -73,12 +81,12 @@
       "component---src-pages-index-jsx-d4d2d9fd3aed96d2decc.js.map"
     ],
     "component---src-pages-reactnative-intro-index-jsx": [
-      "component---src-pages-reactnative-intro-index-jsx-f6054f93ac19de965a49.js",
-      "component---src-pages-reactnative-intro-index-jsx-f6054f93ac19de965a49.js.map"
+      "component---src-pages-reactnative-intro-index-jsx-e198c0c3018ac5136fb8.js",
+      "component---src-pages-reactnative-intro-index-jsx-e198c0c3018ac5136fb8.js.map"
     ],
     "app": [
-      "app-545af65bc3412b5e0741.js",
-      "app-545af65bc3412b5e0741.js.map"
+      "app-573f01553b29007917b2.js",
+      "app-573f01553b29007917b2.js.map"
     ],
     "path---reactnative-intro-reactnative-helloworld": [
       "path---reactnative-intro-reactnative-helloworld-586c7e095e534a3909ec.js",
