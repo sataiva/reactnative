@@ -29,8 +29,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx": [
-      "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-a6ed1dff9ec87ee39669.js",
-      "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-a6ed1dff9ec87ee39669.js.map"
+      "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-010f3c424a26dd9cd5ac.js",
+      "component---src-pages-reactnative-intro-reactnative-drawer-navigator-jsx-010f3c424a26dd9cd5ac.js.map"
     ],
     "path---index": [
       "path---index-586c7e095e534a3909ec.js",
@@ -52,6 +52,10 @@
       "commons-313c6b3d5933e7f168aa.js",
       "commons-313c6b3d5933e7f168aa.js.map"
     ],
+    "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx": [
+      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-81cb09f8ec6c0f59d9ca.js",
+      "component---src-pages-reactnative-intro-reactnative-expo-introduction-jsx-81cb09f8ec6c0f59d9ca.js.map"
+    ],
     "path---reactnative-intro-reactnative-navigation": [
       "path---reactnative-intro-reactnative-navigation-586c7e095e534a3909ec.js",
       "path---reactnative-intro-reactnative-navigation-586c7e095e534a3909ec.js.map"
@@ -69,12 +73,12 @@
       "component---src-pages-index-jsx-d4d2d9fd3aed96d2decc.js.map"
     ],
     "component---src-pages-reactnative-intro-index-jsx": [
-      "component---src-pages-reactnative-intro-index-jsx-71165d4f9c00039e8cdf.js",
-      "component---src-pages-reactnative-intro-index-jsx-71165d4f9c00039e8cdf.js.map"
+      "component---src-pages-reactnative-intro-index-jsx-f6054f93ac19de965a49.js",
+      "component---src-pages-reactnative-intro-index-jsx-f6054f93ac19de965a49.js.map"
     ],
     "app": [
-      "app-caa1dc0ad934c865f539.js",
-      "app-caa1dc0ad934c865f539.js.map"
+      "app-545af65bc3412b5e0741.js",
+      "app-545af65bc3412b5e0741.js.map"
     ],
     "path---reactnative-intro-reactnative-helloworld": [
       "path---reactnative-intro-reactnative-helloworld-586c7e095e534a3909ec.js",
@@ -103,6 +107,10 @@
     "path---about": [
       "path---about-586c7e095e534a3909ec.js",
       "path---about-586c7e095e534a3909ec.js.map"
+    ],
+    "path---reactnative-intro-reactnative-expo-introduction": [
+      "path---reactnative-intro-reactnative-expo-introduction-586c7e095e534a3909ec.js",
+      "path---reactnative-intro-reactnative-expo-introduction-586c7e095e534a3909ec.js.map"
     ]
   }
 }
