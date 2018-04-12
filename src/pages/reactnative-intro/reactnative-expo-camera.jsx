@@ -307,5 +307,5 @@ export default props =>
     <CtaButton to="/reactnative-intro/reactnative-expo-introduction">
       Previous
     </CtaButton>
-    <CtaButton to="/reactnative-intro/reactnative-expo-camera">Next</CtaButton>
+    <CtaButton to="/reactnative-intro/reactnative-expo-upload-image-in-amazons3">Next</CtaButton>
   </MainLayout>;

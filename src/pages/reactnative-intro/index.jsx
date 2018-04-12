@@ -38,6 +38,11 @@ export default props =>
             Capture image using React native + expo camera
           </a>
         </li>
+        <li>
+          <a href="/reactnative-intro/reactnative-expo-upload-image-in-amazons3">
+            Upload captured image in amazon s3
+          </a>
+        </li>
       </ol>
       <p>Let's see them...</p>
       <CtaButton to="/reactnative-intro/reactnative-helloworld">Next</CtaButton>
