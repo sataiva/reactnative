@@ -40,7 +40,7 @@ export default props =>
         </li>
         <li>
           <a href="/reactnative-intro/reactnative-expo-upload-image-in-amazons3">
-            Upload captured image in amazon s3
+          React Native Image Upload
           </a>
         </li>
       </ol>
